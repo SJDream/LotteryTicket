@@ -13,6 +13,7 @@
         <customObject id="-3" userLabel="Application"/>
         <customObject id="Voe-Tx-rLC" customClass="LotteryTicketAppDelegate">
             <connections>
+                <outlet property="resultTable" destination="dBV-Y3-2SU" id="t3A-nH-9qx"/>
                 <outlet property="textB1" destination="vTw-vy-7os" id="MYo-oP-UvD"/>
                 <outlet property="textR1" destination="Aaq-AQ-hNv" id="xNS-au-cSz"/>
                 <outlet property="textR2" destination="sDv-is-NLZ" id="5ap-Uy-4PC"/>
@@ -730,11 +731,11 @@
                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </clipView>
                         <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="f0v-a7-fdr">
-                            <rect key="frame" x="-7" y="2" width="0.0" height="15"/>
+                            <rect key="frame" x="1" y="1" width="0.0" height="16"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                         <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="Lci-gg-l7b">
-                            <rect key="frame" x="-14" y="9" width="15" height="0.0"/>
+                            <rect key="frame" x="-15" y="17" width="16" height="0.0"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                         <tableHeaderView key="headerView" id="vfB-qH-hui">
@@ -851,7 +852,7 @@
                         </textFieldCell>
                     </textField>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="skg-r5-WtM">
-                        <rect key="frame" x="229" y="199" width="66" height="32"/>
+                        <rect key="frame" x="503" y="294" width="66" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="push" title="保存" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="5R6-WT-Mb9">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -859,6 +860,17 @@
                         </buttonCell>
                         <connections>
                             <action selector="Save:" target="Voe-Tx-rLC" id="Zme-oB-UsT"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BtK-rk-j9M">
+                        <rect key="frame" x="503" y="168" width="66" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" title="加载" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="QvE-NN-l26">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" size="13" name="STHeitiSC-Light"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="LoadData:" target="Voe-Tx-rLC" id="IY1-5o-D0z"/>
                         </connections>
                     </button>
                 </subviews>

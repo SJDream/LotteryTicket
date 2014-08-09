@@ -18,6 +18,7 @@
     IBOutlet NSTextField *textR5;
     IBOutlet NSTextField *textR6;
     IBOutlet NSTextField *textB1;
+    IBOutlet NSTableView *resultTable;
 }
 
 @property (assign) IBOutlet NSWindow *window;
@@ -25,5 +26,6 @@
 
 -(void)applicationWillResignActive:(NSNotification *)notification;
 -(IBAction)Save:(id)sender;
+-(IBAction)LoadData:(id)sender;
 
 @end

@@ -36,4 +36,53 @@
     return @"新增成功!";
 }
 
+-(NSTableView*)Query
+{
+    NSTableView *returnTable = [[NSTableView alloc] init];
+    
+    //create columns for table
+    NSTableColumn *colTKID = [[NSTableColumn alloc] initWithIdentifier:@"TKID"];
+    NSTableColumn *colTKTerm = [[NSTableColumn alloc] initWithIdentifier:@"TKTerm"];
+    NSTableColumn *colTKR1 = [[NSTableColumn alloc] initWithIdentifier:@"TKR1"];
+    NSTableColumn *colTKR2 = [[NSTableColumn alloc] initWithIdentifier:@"TKR2"];
+    NSTableColumn *colTKR3 = [[NSTableColumn alloc] initWithIdentifier:@"TKR3"];
+    NSTableColumn *colTKR4 = [[NSTableColumn alloc] initWithIdentifier:@"TKR4"];
+    NSTableColumn *colTKR5 = [[NSTableColumn alloc] initWithIdentifier:@"TKR5"];
+    NSTableColumn *colTKR6 = [[NSTableColumn alloc] initWithIdentifier:@"TKR6"];
+    NSTableColumn *colTKB1 = [[NSTableColumn alloc] initWithIdentifier:@"TKB1"];
+    NSTableColumn *colCreateDate = [[NSTableColumn alloc] initWithIdentifier:@"createdate"];
+    
+    //read table
+    NSString *sqlCommand = @"SELECT * FROM DoubleColorBall";
+    sqlite3_stmt *statement;
+    sqlite3 *database;
+    self.databaseFilePath = @"/Users/SJLee/Documents/Code/Objective-C/LotteryTicket/LotteryTicket/Data/LotteryTicket.sqlite";
+    if (sqlite3_open([self.databaseFilePath UTF8String], &database)!= SQLITE_OK) {
+        sqlite3_close(database);
+        NSAssert(0, @"打开数据库失败！");
+    }
+    if (sqlite3_prepare(database, [sqlCommand UTF8String], -1, &statement, nil)) {
+        while (sqlite3_step(statement) == SQLITE_ROW) {
+            int rowNum = sqlite3_column_int(statement, 0);
+            char *rowData = (char *)sqlite3_column_text(statement, 1);
+            NSString *debug = [[NSString alloc] initWithUTF8String:rowData];
+        }
+    }
+    sqlite3_finalize(statement);
+    sqlite3_close(database);
+    
+    [returnTable addTableColumn:colTKID];
+    [returnTable addTableColumn:colTKTerm];
+    [returnTable addTableColumn:colTKR1];
+    [returnTable addTableColumn:colTKR2];
+    [returnTable addTableColumn:colTKR3];
+    [returnTable addTableColumn:colTKR4];
+    [returnTable addTableColumn:colTKR5];
+    [returnTable addTableColumn:colTKR6];
+    [returnTable addTableColumn:colTKB1];
+    [returnTable addTableColumn:colCreateDate];
+    
+    return returnTable;
+}
+
 @end
